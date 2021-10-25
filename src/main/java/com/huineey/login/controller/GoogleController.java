@@ -1,4 +1,4 @@
-package com.huineey.login.google;
+package com.huineey.login.controller;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -28,7 +28,7 @@ public class GoogleController {
     OAuth2Parameters googleoAuth2Parameters;
 
     // 구글 로그인 페이지를 보여준다.
-    @GetMapping("/")
+    @GetMapping("/google")
     public String main() {
         OAuth2Operations oAuth2Operations = googleConnectionFactory.getOAuthOperations();
         String url = oAuth2Operations.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE,googleoAuth2Parameters);
@@ -71,7 +71,7 @@ public class GoogleController {
         System.out.println(result.get(""));
 
 
-        return "redirect:http://localhost:8080/index";
+        return "redirect:http://localhost:8080/google/login";
     }
 
 }
