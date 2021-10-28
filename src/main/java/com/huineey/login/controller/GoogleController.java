@@ -27,8 +27,8 @@ public class GoogleController {
     @Autowired
     OAuth2Parameters googleoAuth2Parameters;
 
-    // 구글 로그인 페이지를 보여준다.
-    @GetMapping("/google")
+    // 구글 로그인 페이지
+    @GetMapping("/")
     public String main() {
         OAuth2Operations oAuth2Operations = googleConnectionFactory.getOAuthOperations();
         String url = oAuth2Operations.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE,googleoAuth2Parameters);
@@ -71,7 +71,7 @@ public class GoogleController {
         System.out.println(result.get(""));
 
 
-        return "redirect:http://localhost:8080/google/login";
+        return "redirect:http://localhost:8080/index.html";
     }
 
 }
